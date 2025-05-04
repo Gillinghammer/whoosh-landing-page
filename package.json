@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Whoosh static website",
   "scripts": {
-    "deploy": "gh-pages -d whoosh --dotfiles"
+    "deploy": "gh-pages -d . --dotfiles --remove 'node_modules|package*.json|.git*|src'"
   },
   "keywords": [
     "whoosh",
