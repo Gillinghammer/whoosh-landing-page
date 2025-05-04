@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -31,4 +31,12 @@ jobs:
           path: './whoosh'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2 
+        uses: actions/deploy-pages@v2
+      - name: Create .nojekyll file
+        run: touch ./whoosh/.nojekyll
+      - name: Deploy to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./whoosh
+          branch: gh-pages
+          clean: true 
