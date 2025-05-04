@@ -8,8 +8,8 @@
 .vscode/
 *.iml
 
-# Optional Node Modules (if you ever add JS build tools)
-# node_modules/
+# Node Modules
+node_modules/
 
 # Build output (if applicable)
 # dist/
