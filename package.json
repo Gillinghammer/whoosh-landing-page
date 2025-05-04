@@ -1,16 +1,17 @@
 {
-  "name": "whoosh-worker",
+  "name": "whoosh-web",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "description": "Whoosh static website",
   "scripts": {
-    "deploy": "wrangler deploy"
+    "deploy": "gh-pages -d whoosh"
   },
   "keywords": [
-    "cloudflare",
-    "workers",
-    "whoosh"
+    "whoosh",
+    "static-site"
   ],
   "author": "",
   "license": "ISC",
-  "description": "Cloudflare Worker for Whoosh static site"
-} 
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
