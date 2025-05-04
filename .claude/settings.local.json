@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:dark-spark-fitness-glow.lovable.app)",
+      "Bash(mkdir:*)"
+    ],
+    "deny": []
+  }
+}
