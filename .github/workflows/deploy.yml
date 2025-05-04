@@ -23,20 +23,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Create .nojekyll file
+        run: touch .nojekyll
       - name: Setup Pages
         uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: './whoosh'
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
-      - name: Create .nojekyll file
-        run: touch ./whoosh/.nojekyll
-      - name: Deploy to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./whoosh
+          folder: .
           branch: gh-pages
           clean: true 
