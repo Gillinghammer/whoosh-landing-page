@@ -32,4 +32,9 @@ jobs:
         with:
           folder: .
           branch: gh-pages
-          clean: true 
+          clean: true
+          clean-exclude: |
+            .git
+            .github
+          git-config-name: GitHub Actions
+          git-config-email: actions@github.com 
