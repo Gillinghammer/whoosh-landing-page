@@ -1,0 +1,17 @@
+{
+  "name": "whoosh-web",
+  "version": "1.0.0",
+  "description": "Whoosh static website",
+  "scripts": {
+    "deploy": "gh-pages -d whoosh --dotfiles"
+  },
+  "keywords": [
+    "whoosh",
+    "static-site"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^6.1.0"
+  }
+}
