@@ -13,16 +13,10 @@ export default {
       path = "/index.html";
     }
     
-    // Construct a new Request to fetch from the static namespace
-    const assetRequest = new Request(
-      `${url.origin}${path}`,
-      request
-    );
-    
-    // Fetch from the static assets
     try {
-      // Use Cloudflare's built-in asset handler
-      return await env.ASSETS.fetch(assetRequest);
+      // Use Cloudflare's built-in asset handler for Workers Sites
+      // The __STATIC_CONTENT binding is automatically created by Wrangler
+      return await env.__STATIC_CONTENT.fetch(new Request(url.pathname === '/' ? '/index.html' : url.pathname, request));
     } catch (e) {
       // If the asset is not found, return a 404
       return new Response("Not Found", { status: 404 });
