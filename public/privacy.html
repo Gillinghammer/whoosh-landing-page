@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whoosh - Privacy Policy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        header {
+            transition: background-color 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(8px);
+        }
+        
+        main.privacy-policy-content {
+            padding-top: 80px;
+        }
+        
+        main.privacy-policy-content h1 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <img src="whoosh_logo.png" alt="WHOOSH">
+                    <span>WHOOSH</span>
+                </div>
+                <a href="index.html" class="back-btn">Back to Home</a>
+            </div>
+        </header>
+
+        <main class="privacy-policy-content">
+            <h1>Privacy Policy</h1>
+            <p><em>Last Updated: May 4, 2025</em></p> 
+            
+            <p>Welcome to Whoosh! Your privacy is critically important to us. This policy outlines how we handle your data when you use our AI-powered health coach app.</p>
+
+            <h2>Key Privacy Principles</h2>
+
+            <h3>🔍 What Data We Access</h3>
+            <ul>
+                <li>We read health data **only from Apple Health**, and only the categories you explicitly grant permission for (e.g., sleep, steps, workouts, heart rate).</li>
+                <li>We **do not access or store** any data that you don't approve via HealthKit permissions.</li>
+                <li>When you choose to share lifestyle details through chat (like "I have a 19-month-old" or "I live in a busy city"), that data is saved **locally on your device** to personalize your experience.</li>
+            </ul>
+
+            <h3>🔐 Where Data is Stored</h3>
+            <ul>
+                <li>All your Apple Health data read by the app **remains on your device**. We do not store, sync, or back up your Apple Health data to the cloud or any external servers.</li>
+                <li>AI-generated insights, your preferences, and coaching history are also stored **locally on your device**. They are only backed up if you explicitly enable iCloud Backup or other device-level backup settings in iOS.</li>
+            </ul>
+
+            <h3>🧠 How AI and Personalization Work</h3>
+            <ul>
+                <li>Our AI model processes your questions and health data either entirely **on-device** or via secure, **encrypted communication** with our servers in real-time to generate responses.</li>
+                <li>When server-side processing is needed, the AI fetches **only the minimum amount** of relevant health data required to answer your specific question or provide your weekly voice note. This data is processed immediately and is not stored long-term on our servers.</li>
+                <li>Your personal health data is **never used to train our AI models** or shared with any third parties.</li>
+            </ul>
+
+            <h3>🚫 What We Never Do</h3>
+            <ul>
+                <li>We **never sell** your personal data.</li>
+                <li>We **never use** your health data for advertising or marketing purposes.</li>
+                <li>We **never access** unrelated device data like your contacts, location (unless explicitly granted for a specific feature, which we currently don't have), photos, or browsing history.</li>
+            </ul>
+
+            <h3>⚙️ User Controls and Transparency</h3>
+            <ul>
+                <li>You have full control over the health data Whoosh can access. You can review and **revoke Apple Health permissions** at any time via the Settings app on your iPhone (Settings > Health > Data Access & Devices > Whoosh).</li>
+                <li>You can **delete all local app data**, including insights and chat history, at any time within the Whoosh app's settings screen.</li>
+                <li>We strive for transparency. Before requesting any Apple Health permissions, we provide clear **in-app explanations** of why we need access to specific data types.</li>
+            </ul>
+
+            <h2>Changes to This Policy</h2>
+            <p>We may update this privacy policy from time to time. We will notify you of any significant changes by posting the new policy within the app or on our website. We encourage you to review this policy periodically.</p>
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:support@usewhoosh.ai">support@usewhoosh.ai</a></p>
+
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="whoosh_logo.png" alt="Whoosh Logo" class="footer-logo-img">
+                    <span class="footer-logo-text">WHOOSH</span>
+                    <p class="footer-tagline">Your AI-powered health coach</p>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="mailto:support@usewhoosh.ai">support@usewhoosh.ai</a>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 Whoosh AI All rights reserved.
+            </div>
+        </footer>
+    </div>
+    <!-- Apple Health Badge positioned relative to viewport -->
+    <div class="apple-health-badge">
+        <img src="health_heart.png" alt="Apple Health Heart Icon" class="apple-health-icon">
+        <span class="apple-health-text">Works with<br><b>Apple Health</b></span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
