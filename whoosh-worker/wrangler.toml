@@ -1,0 +1,7 @@
+name = "whoosh"
+main = "src/index.js"
+compatibility_date = "2024-05-04"
+
+# Specify the site configuration
+[site]
+bucket = "../whoosh" 
