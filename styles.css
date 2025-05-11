@@ -1,11 +1,19 @@
 :root {
-    --primary-color: #0fbe8c;
-    --text-color: #ffffff;
-    --background-color: #0b1421;
-    --secondary-background: #152231;
-    --accent-color: #1c2f42;
-    --border-radius: 12px;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --primary: #00E0C2;
+    --primary-dark: #00C0A5;
+    --primary-glow: rgba(0, 224, 194, 0.4);
+    --text: #ffffff;
+    --background: #191919;
+    --secondary-bg: #222222;
+    --accent: #333333;
+    --overlay: rgba(0, 0, 0, 0.65);
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+    --border-radius: 8px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -15,521 +23,496 @@
 }
 
 html {
+    font-size: 18px;
     scroll-behavior: smooth;
 }
 
-@keyframes electricGrid {
-  0% { background-position: 0 0; }
-  100% { background-position: 100px 100px; } /* Twice the background-size for seamless loop */
+body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.5;
+    overflow-x: hidden;
+    position: relative;
 }
 
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    /* Animated Electric Grid Background */
-    /* Using faint primary color for lines */
-    background-image: 
-      linear-gradient(to right, rgba(15, 190, 140, 0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(15, 190, 140, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: electricGrid 15s linear infinite; /* Adjust duration (15s) for speed */
+.bg-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.85);
 }
 
 img {
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
 a {
     text-decoration: none;
     color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
 }
 
 .container {
-    max-width: 900px;
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 var(--spacing-sm);
 }
 
-/* Header styles */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: var(--background-color);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    padding: 1rem 1.5rem;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.logo {
-    width: 40px;
-    height: auto;
-}
-
-.logo-container h1 {
-    font-size: 1.75rem;
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
-    letter-spacing: 1px;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
 }
 
-.download-btn {
-    background-color: transparent; /* Remove solid background */
-    color: var(--primary-color); /* Set text color to primary */
+h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+h2 {
+    font-size: 2.8rem;
+    letter-spacing: -0.02em;
+}
+
+h3 {
+    font-size: 1.75rem;
+    letter-spacing: -0.01em;
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Button Styles */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary);
+    color: var(--background);
     font-weight: 600;
-    padding: 0.6rem 1.3rem; /* Slightly reduced padding */
-    border-radius: 50px;
-    border: 2px solid var(--primary-color); /* Add border */
+    font-size: 1.125rem;
+    padding: 0.9rem 2.5rem;
+    border-radius: 100px;
+    text-align: center;
     transition: all 0.3s ease;
 }
 
-.download-btn:hover {
-    background-color: var(--primary-color); /* Fill background on hover */
-    color: var(--background-color); /* Change text color on hover */
+.btn-primary:hover {
+    background-color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(15, 190, 140, 0.3);
+    box-shadow: 0 6px 15px var(--primary-glow), 0 0 8px var(--primary-glow);
 }
 
-/* Hero section */
-.hero {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding: 4rem 0;
-    position: relative;
-}
-
-.hero-content {
-    flex: 1;
-}
-
-.hero-content h2 {
-    font-size: 3rem;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-}
-
-.hero-content p {
-    font-size: 1.125rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
-.phone-screenshot {
-    max-height: 600px;
-    border-radius: 24px;
-    box-shadow: var(--shadow);
-}
-
-/* Phone mockup styles */
-.phone-mockup {
-    display: inline-block;
-    position: relative;
-    padding: 1rem;
-    transition: all 0.5s ease;
-}
-
-.phone-frame {
-    position: relative;
-    margin: 0 auto;
-    border: 10px solid #1a1a1a;
-    border-radius: 2.5rem;
-    overflow: hidden;
-    height: 600px;
-    max-width: 300px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.phone-frame img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: top center;
-}
-
-/* Remove notch and keep only the home indicator */
-/* 
-.phone-frame::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 35%;
-    height: 25px;
-    background-color: #1a1a1a;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    z-index: 10;
-}
-*/
-
-.phone-frame::after {
-    content: '';
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30%;
-    height: 4px;
-    background-color: #333;
-    border-radius: 4px;
-    z-index: 10;
-}
-
-.phone-mockup:hover .phone-frame {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
-}
-
-/* App Store Button Reconstruction */
+/* App Store Button */
 .app-store-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
-    background-color: #ffffff; /* White background */
-    color: #000000; /* Black text */
-    padding: 0.6rem 1.2rem; /* Adjust padding */
-    border-radius: 8px; /* Slightly less rounded */
-    text-decoration: none;
+    gap: 1.2rem;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 1.1rem 2.2rem;
+    border-radius: 20px;
     transition: all 0.3s ease;
-    border: 1px solid rgba(0,0,0,0.1); /* Subtle border */
 }
 
 .app-store-icon {
-    height: 28px; /* Adjust icon size */
+    height: 45px;
     width: auto;
 }
 
 .app-store-text {
-    font-size: 0.8rem; /* Smaller text */
+    font-size: 1.28rem;
     line-height: 1.2;
     text-align: left;
 }
 
 .app-store-text b {
-    display: block; /* Make 'App Store' bold and on its own visual line */
-    font-size: 1rem; /* Larger 'App Store' */
+    display: block;
+    font-size: 1.6rem;
     font-weight: 600;
 }
 
 .app-store-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.15);
 }
 
-/* Features section */
-.features {
-    padding: 4rem 0;
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-md) 0;
+    z-index: 100;
+    transition: all 0.4s ease;
 }
 
-.feature {
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
     display: flex;
     align-items: center;
-    gap: 3rem;
-    margin-bottom: 6rem;
+    gap: var(--spacing-xs);
 }
 
-.feature:last-child {
-    margin-bottom: 0;
+.logo img {
+    height: 2.5rem;
+    width: auto;
+    filter: drop-shadow(0 0 5px var(--primary-glow));
 }
 
-.feature.reverse {
-    flex-direction: row-reverse;
+.logo span {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.01em;
 }
 
-.feature-image {
-    flex: 1;
-    max-height: 500px;
-    border-radius: 24px;
+nav ul {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+nav a {
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.25rem 0;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+    box-shadow: 0 0 5px var(--primary-glow);
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--spacing-xl) + 2rem) 0 var(--spacing-xl);
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+}
+
+/* Features Section */
+.features {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--background);
+    position: relative;
+    z-index: 1;
+}
+
+.features::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10rem;
+    background: linear-gradient(to bottom, var(--overlay), transparent);
+    z-index: -1;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-lg);
+    font-size: 1.4rem;
+    opacity: 0.8;
+}
+
+.feature-grid {
+    display: grid;
+    gap: var(--spacing-xl);
+}
+
+.feature-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.feature-card.reversed {
+    direction: rtl;
+}
+
+.feature-card.reversed .feature-content {
+    direction: ltr;
+}
+
+.device-wrapper {
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.device-screenshot {
+    border-radius: 2rem;
     box-shadow: var(--shadow);
-}
-
-.feature-content {
-    flex: 1;
+    border: 8px solid #222;
+    width: 100%;
+    height: auto;
 }
 
 .feature-content h3 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    color: var(--primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-tag {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.feature-tag::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: var(--primary);
+    bottom: -0.25rem;
+    left: 0;
 }
 
 .feature-content p {
-    font-size: 1.125rem;
     opacity: 0.9;
+    font-size: 1.25rem;
 }
 
-/* CTA section */
+/* CTA Section */
 .cta {
+    padding: var(--spacing-xl) 0;
     text-align: center;
-    padding: 5rem 0;
-    background-color: var(--secondary-background);
-    border-radius: var(--border-radius);
-    margin: 2rem 0;
+    background-color: var(--secondary-bg);
+    position: relative;
+    z-index: 1;
 }
 
 .cta h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-sm);
 }
 
 .cta p {
-    font-size: 1.125rem;
     max-width: 600px;
-    margin: 0 auto 2rem;
-    opacity: 0.9;
+    margin: 0 auto var(--spacing-lg);
+    font-size: 1.4rem;
+    opacity: 0.8;
 }
 
 /* Footer */
 footer {
-    padding: 3rem 0 2rem;
-    border-top: 1px solid var(--accent-color);
+    background-color: var(--background);
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+    position: relative;
+    z-index: 1;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 2rem;
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
 }
 
-.footer-logo {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0 0.75rem;
+.footer-logo img {
+    height: 2rem;
+    width: auto;
+    margin-bottom: var(--spacing-sm);
 }
 
-.footer-logo-img {
-    width: 35px;
-    height: auto;
-    margin-bottom: 0;
-}
-
-.footer-logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.footer-tagline {
+.footer-logo p {
     opacity: 0.7;
-    width: 100%;
-    margin-top: 0.25rem;
-    font-size: 0.9rem;
+    font-size: 1.05rem;
 }
 
-.footer-links {
-    display: flex;
-    gap: 2rem;
+.footer-links h4 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+    color: var(--primary);
+}
+
+.footer-links li {
+    margin-bottom: var(--spacing-xs);
 }
 
 .footer-links a {
     opacity: 0.7;
+    font-size: 1.05rem;
     transition: opacity 0.3s ease;
 }
 
 .footer-links a:hover {
     opacity: 1;
+    color: var(--primary);
 }
 
 .copyright {
     text-align: center;
-    opacity: 0.6;
-    font-size: 0.875rem;
+    border-top: 1px solid var(--accent);
+    padding-top: var(--spacing-md);
 }
 
-/* Responsive styles */
+.copyright p {
+    opacity: 0.6;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* Apple Health Badge */
+.apple-health-badge {
+    position: fixed;
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    z-index: 90;
+}
+
+.apple-health-badge img {
+    height: 2.5rem;
+    width: auto;
+}
+
+.apple-health-badge span {
+    font-size: 1.3rem;
+    line-height: 1.2;
+}
+
+.apple-health-badge b {
+    font-weight: 600;
+}
+
+/* Responsive Styles */
 @media (max-width: 992px) {
-    .hero, .feature {
-        flex-direction: column;
-    }
-
-    /* Ensure consistent stacking order on mobile: Image first, then Text */
-    .feature .phone-mockup {
-        order: 1;
-    }
-    .feature .feature-content {
-        order: 2;
-    }
-
-    .hero-content, .feature-content {
-        text-align: center;
-    }
-
-    .hero-content h2 {
-        font-size: 2.5rem;
-    }
-
-    .feature-content h3 {
-        font-size: 2rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-
-    .footer-logo {
-        text-align: center;
+    html {
+        font-size: 17px;
     }
     
-    .phone-frame {
-        height: 500px;
-        max-width: 250px;
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-md);
     }
 }
 
 @media (max-width: 768px) {
-    .hero-content h2 {
-        font-size: 2rem;
+    html {
+        font-size: 16px;
     }
-
-    .feature-content h3 {
-        font-size: 1.75rem;
-    }
-
-    .cta h2 {
-        font-size: 2rem;
+    h1 {
+        font-size: 3.2rem;
     }
     
-    .phone-frame {
-        height: 450px;
-        max-width: 225px;
-    }
-}
-
-@media (max-width: 480px) {
-    .phone-frame {
-        height: 400px;
-        max-width: 200px;
+    h2 {
+        font-size: 2.2rem;
     }
     
-    .phone-frame::before {
-        height: 18px;
+    .feature-card {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .feature-card.reversed {
+        direction: ltr;
+    }
+    
+    .device-wrapper {
+        order: -1;
     }
 }
 
-/* Add padding to main to account for fixed header */
-main {
-    padding-top: 5rem;
-}
-
-.ai-coach {
-    background-color: var(--secondary-background);
-    border-radius: var(--border-radius);
-    padding: 4rem 2rem;
-    margin: 2rem 0;
-}
-
-/* Container for CTA buttons */
-.cta-buttons {
-    margin-top: 2rem; /* Space above the button(s) */
-}
-
-/* Apple Health Badge - Fixed Position (Informational Style) */
-.apple-health-badge {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background-color: rgba(28, 47, 66, 0.8); /* Darker, semi-transparent background (using --accent-color) */
-    color: var(--text-color); /* White text */
-    padding: 0.4rem 0.8rem; /* Slightly smaller padding */
-    border-radius: 6px; /* Slightly less rounded */
-    /* border: none; Removed */
-    font-size: 0.75rem; /* Slightly smaller font */
-    line-height: 1.2;
-    /* box-shadow: none; Removed */
-    /* transition: none; Removed */
-}
-
-/* Remove hover effect for the badge */
-/*
-.apple-health-badge:hover {
-    transform: scale(1.03); 
-}
-*/
-
-.apple-health-icon {
-    height: 20px; /* Slightly smaller icon */
-    width: auto;
-}
-
-/* Responsive adjustments for buttons if needed */
-@media (max-width: 992px) {
-    .cta-buttons {
-        align-items: center; /* Center buttons on mobile */
+@media (max-width: 576px) {
+    html {
+        font-size: 15px;
+    }
+    h1 {
+        font-size: 2.8rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    nav ul {
+        gap: var(--spacing-sm);
+    }
+    
+    .logo span {
+        font-size: 1.5rem;
     }
 }
 
-/* Privacy Policy Specific Styles */
-.privacy-policy-content {
-    padding: 2rem 0; /* Add some vertical padding */
-    padding-top: 7rem; /* Increased top padding to account for fixed header + title spacing */
-}
-
-.privacy-policy-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--accent-color);
-    padding-bottom: 0.5rem;
-}
-
-.privacy-policy-content h2 {
-    font-size: 1.8rem;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-.privacy-policy-content h3 {
-    font-size: 1.4rem;
-    margin-top: 2rem;
-    margin-bottom: 0.8rem;
-}
-
-.privacy-policy-content p, 
-.privacy-policy-content ul {
-    margin-bottom: 1rem;
-    line-height: 1.7;
-    opacity: 0.9;
-}
-
-.privacy-policy-content ul {
-    list-style: disc;
-    padding-left: 2rem; /* Indent list items */
-}
-
-.privacy-policy-content li {
-    margin-bottom: 0.5rem;
-}
-
-.privacy-policy-content strong {
-    color: var(--primary-color);
-}
+.download-btn:hover {
+    background-color: var(--primary);
+    color: var(--background);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--primary-glow);
+} 
